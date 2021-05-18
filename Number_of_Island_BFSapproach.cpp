@@ -1,4 +1,4 @@
-// Works for Disconnected Graph as well
+// WBy using BFS Approach
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -12,7 +12,6 @@ void bfs(int v,vector<int> adj[],vector<bool> &visited)
     {
         int u = q.front();
         q.pop();
-        cout<<u<<"->";
         for(auto child:adj[u])
         {
             if(visited[child]==false)
@@ -38,15 +37,14 @@ int main()
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
-    cout<<"\nFrom which vertex you want to start\n";
-    int v;
-    cin>>v;
-    cout<<"\nBFS Traversal\n";
-    bfs(v,adj,visited);
+    int cc=0;
     for(int i=1;i<=n;i++)
     {
         if(visited[i]==false)
+        {
             bfs(i,adj,visited);
+            cc++;
+        }
     }
-    cout<<endl;
+    cout<<"\nNo. of Islands in this graph using BFS\n"<<cc<<endl;
 }
