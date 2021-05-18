@@ -41,17 +41,13 @@ int main()
     cout<<"\nStarting vertex\n";
     int v;
     cin>>v;
-    int cc=0;
     cout<<"\nBFS Traversal\n";
     bfs(v,adj,visited);
-    cc++;
     for(int i=1;i<=n;i++)
     {
         if(visited[i]==false)
         {
             bfs(i,adj,visited);
-            cc++;
         }
     }
-    cout<<"\nNo. of connected components are : "<<cc<<endl;
 }
